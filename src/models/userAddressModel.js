@@ -4,7 +4,7 @@ const schema = {
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-    },  
+    },
     address: [
         {
             locality: {

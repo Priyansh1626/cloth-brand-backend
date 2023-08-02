@@ -5,22 +5,28 @@ const schema = {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Cloth",
     },
-    category: {
-        type: String,
-        required: true
-    },
-    subCategory: {
-        type: String,
-        required: true
-    },
-    totalQnt: {
-        type: Number,
-        required: true
-    },
     availableQnt: {
         type: Number,
         min: [0, "Quantity cannot be negative"]
     },
+    sizes: [
+        {
+            size: {
+                type: String,
+            },
+            isAvail: {
+                type: Boolean,
+            },
+            totalQnt: {
+                type: Number,
+                required: true
+            },
+            availableQnt: {
+                type: Number,
+                min: [0, "Quantity cannot be negative"]
+            },
+        }
+    ],
     date: {
         type: String,
         default: function () {
